@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Exercise:
+    Take an input from the client and replace email found with
+    ************
+     -->
+
+    <script>
+      
+      var email = prompt("Hi, pls enter your email address");
+      
+    //   creating a function to validate email
+      function validateEmail(email) {
+       
+        // creating email pattern using regex
+        let pattern = /(\w+)@(\w+)\.(\w+)/i;
+        
+        // Test if supplied email matches pattern
+        if (pattern.test(email) !== true) {
+          alert("Please enter a valid email address")
+        } 
+        
+        else {
+          let myRegex = /(\w+)@/i;
+          let emailMatch = email.match(myRegex)[1];
+          let number = email.match(myRegex)[1].length;
+          let sequence = email.replace(emailMatch, "*".repeat(number));
+
+          // let sequence = email.replace(/.(?=.*@)/gm, "*");
+          alert(`Your email is ${sequence}`)
+        }
+      }
+      validateEmail(`${email}`)
+
+
+    </script>
+  </body>
+</html>
